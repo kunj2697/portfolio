@@ -1,0 +1,153 @@
+/* .header-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 140px 33px 92px;
+  border-radius: 40px;
+  border-bottom: 1px solid var(--light-mode-bg-color);
+  border-bottom: var(--border-bottom);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 79px;
+}
+
+.logo {
+  color: var(--logo-color);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--dot-bg-color);
+  border-radius: 50%;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: center;
+  height: 68px;
+  padding: 16px 51px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 40px;
+  background: var(--navigation-bg);
+}
+
+.navbar {
+  display: flex;
+  gap: 47px;
+}
+
+.nav-item {
+  font-family: Montserrat;
+  color: var(--nav-item-color);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--nav-item-color);
+}
+
+.nav-item a:hover {
+  color: var(--nav-item-hover-color);
+  transition: all 0.5s ease;
+}
+
+.color-mode {
+  width: 56px;
+  height: 58px;
+  background-color: var(--light-mode-bg-color);
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+} */
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 140px 33px 92px;
+  border-radius: 40px;
+  border-bottom: 1px solid var(--light-mode-bg-color);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 79px;
+}
+
+.logo {
+  color: var(--logo-color);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--dot-bg-color);
+  border-radius: 50%;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: center;
+  height: 68px;
+  padding: 16px 51px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 40px;
+  background: var(--navigation-bg);
+}
+
+.navbar {
+  display: flex;
+  gap: 47px;
+}
+
+.nav-item {
+  font-family: Montserrat;
+  color: var(--nav-item-color);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--nav-item-color);
+}
+
+.nav-item a:hover {
+  color: var(--nav-item-hover-color);
+  transition: all 0.5s ease;
+}
+
+.color-mode {
+  width: 56px;
+  height: 58px;
+  background-color: var(--light-mode-bg-color);
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+}
