@@ -22,7 +22,7 @@ function AboutSection() {
           </div>
         </div>
         <div className="about-para">
-          <p className="para">Hey there! I'm <span className="about-name">Kunj Patel</span>, a passionate student at Ganpat University -  U. V. Patel College of Engineering, on a mission to become a top-notch  software engineer. For over 2.5 years, I've been deeply immersed in  coding, with a focus on tackling tough problems and bringing ideas to  life using the MERN stack.</p>
+          <p className="para">Hey there! I'm <span className="about-name">Kunj Patel</span>, a passionate student at Ganpat University -  department of computer science, on a mission to become a top-notch  software engineer. For over 2years, I've been deeply immersed in  coding, with a focus on tackling tough problems and bringing ideas to  life using the MERN stack.</p>
           <div className="downloadCv-btn">
             <a href="/pdfs/resume_guru.pdf" target="_blank" rel="noreferrer" download>Download Resume</a>
           </div>
