@@ -40,7 +40,7 @@ function HeroSection({isDarkTheme}) {
           </div>
 
           <div>
-          <a className="links" href="https://instagram.com/its__g.t" target="_blank" rel="noreferrer">
+          <a className="links" href="https://instagram.com/kunj_2697" target="_blank" rel="noreferrer">
           {
             isDarkTheme ? 
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
