@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Element } from "react-scroll";
 import Header from "./components/Header";
 import HeroSection from "./components/Herosection";
 import AboutSection from "./components/About";
@@ -7,15 +9,13 @@ import SkillsSection from "./components/Skills";
 import ProjectsSection from "./components/Projects";
 import ContactSection from "./components/Contact";
 import Footer from "./components/Footer";
-import LanguagesSection from "./components/LanguagesSection";
-import { Element } from "react-scroll";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import CustomCursor from "./components/CustomCursor";
 
-function Section({ children, variants }) {
+function AnimatedSection({ children, className = "", delay = 0 }) {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [ref, inView] = useInView({ 
+    triggerOnce: true, 
+    threshold: 0.1 
+  });
 
   React.useEffect(() => {
     if (inView) {
@@ -23,8 +23,31 @@ function Section({ children, variants }) {
     }
   }, [controls, inView]);
 
+  const variants = {
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      transition: { duration: 0.6 }
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6,
+        delay: delay,
+        ease: "easeOut"
+      }
+    },
+  };
+
   return (
-    <motion.div ref={ref} initial="hidden" animate={controls} variants={variants}>
+    <motion.div 
+      ref={ref} 
+      initial="hidden" 
+      animate={controls} 
+      variants={variants}
+      className={className}
+    >
       {children}
     </motion.div>
   );
@@ -33,65 +56,50 @@ function Section({ children, variants }) {
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkTheme]);
+
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
 
-  const heroVariants = {
-    hidden: { opacity: 0, y: -100 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  };
-
-  const aboutVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
-  };
-
-  const skillsVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-  };
-
-  const projectsVariants = {
-    hidden: { opacity: 0, rotate: -10 },
-    visible: { opacity: 1, rotate: 0, transition: { duration: 1 } },
-  };
-
-  const contactVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  };
-
   return (
-    <div className={isDarkTheme ? "portfolio" : "portfolio light-theme"}>
-      <CustomCursor />
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-dark-900 dark:via-dark-800 dark:to-dark-900 transition-all duration-500">
       <Header onToggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
-      <Section variants={heroVariants}>
+      
+      <AnimatedSection>
         <HeroSection isDarkTheme={isDarkTheme} />
-      </Section>
+      </AnimatedSection>
+      
       <Element name="about">
-        <Section variants={aboutVariants}>
+        <AnimatedSection delay={0.2}>
           <AboutSection />
-        </Section>
+        </AnimatedSection>
       </Element>
+      
       <Element name="skills">
-        <Section variants={skillsVariants}>
-          <LanguagesSection />
-        </Section>
-        <Section variants={skillsVariants}>
+        <AnimatedSection delay={0.3}>
           <SkillsSection isDarkTheme={isDarkTheme} />
-        </Section>
+        </AnimatedSection>
       </Element>
+      
       <Element name="projects">
-        <Section variants={projectsVariants}>
+        <AnimatedSection delay={0.4}>
           <ProjectsSection />
-        </Section>
+        </AnimatedSection>
       </Element>
+      
       <Element name="contact">
-        <Section variants={contactVariants}>
+        <AnimatedSection delay={0.5}>
           <ContactSection />
-        </Section>
+        </AnimatedSection>
       </Element>
+      
       <Footer />
     </div>
   );
