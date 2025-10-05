@@ -21,7 +21,7 @@ function SkillsSection({ isDarkTheme }) {
     { name: "Bash", src: "/images/skills/Bash.svg", category: "Tools" },
   ];
 
-  const categories = [...new Set(skills.map(skill => skill.category))];
+  // const categories = [...new Set(skills.map(skill => skill.category))];
 
   return (
     <section className="section-padding bg-white dark:bg-dark-900">
